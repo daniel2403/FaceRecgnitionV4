@@ -57,7 +57,7 @@ namespace FaceRecgnitionV4
             { err.SetError(txtpassword, "Campo requerido"); }
 
            
-            if(P.ExisteUsuario(txtusuario.Text).HasValue)
+                if(P.ExisteUsuario(txtusuario.Text).HasValue)
             {
                 err.SetError(txtusuario, "El nombre de ususario ya existe");
             }

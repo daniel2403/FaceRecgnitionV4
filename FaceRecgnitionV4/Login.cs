@@ -156,11 +156,12 @@ namespace FaceRecgnitionV4
                     EigenObjectRecognizer recognizer = new EigenObjectRecognizer(
                        trainingImages.ToArray(),
                        labels.ToArray(),
-                       3000,
+                       2700,
                        ref termCrit);
 
                     name = recognizer.Recognize(result);
-                   
+                    //Aun en investigaciones, pero parece que si es mayor a 3000 no reconoce a nadie
+                    float Confidence = recognizer.GetEigenDistances(result)[0];
                     if (NombreAuxiliar == "")
                     {
                         NombreAuxiliar = name;
@@ -169,15 +170,20 @@ namespace FaceRecgnitionV4
                     currentFrame.Draw(name, ref font, new Point(f.rect.X - 2, f.rect.Y - 2), new Bgr(Color.White));
                     if ((name == NombreAuxiliar) && NombreAuxiliar != "")
                     {
-                        contador = contador + 2;
+                        contador = contador + 5;
                         progressBarControl1.EditValue = contador;
 
                     }
                     else { contador = 0; NombreAuxiliar = ""; }
                     if (contador == 100)
                     {
-                       
+                        
                         //Si llega hasta aqui quiere decir que identifico a alguien
+                        //Apagar();
+                        FaceRecgnitionV4.Default d = new Default(name);
+                      //  d.Show();
+                       // this.Hide();
+                     
 
                         
                     }
