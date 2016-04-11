@@ -127,6 +127,27 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="DLLS_Emguv\cvextern.dll" />
+    <Content Include="DLLS_Emguv\Emgu.CV.dll" />
+    <Content Include="DLLS_Emguv\Emgu.CV.UI.dll" />
+    <Content Include="DLLS_Emguv\Emgu.Util.dll" />
+    <Content Include="DLLS_Emguv\haarcascade_frontalface_default.xml" />
+    <Content Include="DLLS_Emguv\opencv_calib3d220.dll" />
+    <Content Include="DLLS_Emguv\opencv_contrib220.dll" />
+    <Content Include="DLLS_Emguv\opencv_core220.dll" />
+    <Content Include="DLLS_Emguv\opencv_features2d220.dll" />
+    <Content Include="DLLS_Emguv\opencv_ffmpeg220.dll" />
+    <Content Include="DLLS_Emguv\opencv_flann220.dll" />
+    <Content Include="DLLS_Emguv\opencv_gpu220.dll" />
+    <Content Include="DLLS_Emguv\opencv_highgui220.dll" />
+    <Content Include="DLLS_Emguv\opencv_imgproc220.dll" />
+    <Content Include="DLLS_Emguv\opencv_legacy220.dll" />
+    <Content Include="DLLS_Emguv\opencv_ml220.dll" />
+    <Content Include="DLLS_Emguv\opencv_objdetect220.dll" />
+    <Content Include="DLLS_Emguv\opencv_video220.dll" />
+    <Content Include="DLLS_Emguv\ZedGraph.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
