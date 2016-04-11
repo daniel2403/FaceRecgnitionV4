@@ -133,7 +133,7 @@
             this.txtusuario.Location = new System.Drawing.Point(118, 39);
             this.txtusuario.Name = "txtusuario";
             this.txtusuario.Size = new System.Drawing.Size(224, 22);
-            this.txtusuario.TabIndex = 32;
+            this.txtusuario.TabIndex = 1;
             // 
             // labelControl7
             // 
@@ -149,7 +149,7 @@
             this.txtpassword.Name = "txtpassword";
             this.txtpassword.Properties.PasswordChar = '*';
             this.txtpassword.Size = new System.Drawing.Size(224, 22);
-            this.txtpassword.TabIndex = 30;
+            this.txtpassword.TabIndex = 6;
             // 
             // labelControl5
             // 
@@ -191,7 +191,7 @@
             this.txtColor.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.txtColor.Size = new System.Drawing.Size(224, 22);
-            this.txtColor.TabIndex = 27;
+            this.txtColor.TabIndex = 5;
             // 
             // labelControl4
             // 
@@ -207,28 +207,28 @@
             this.txtID.Location = new System.Drawing.Point(117, 11);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(224, 22);
-            this.txtID.TabIndex = 20;
+            this.txtID.TabIndex = 0;
             // 
             // txtMaterno
             // 
             this.txtMaterno.Location = new System.Drawing.Point(117, 123);
             this.txtMaterno.Name = "txtMaterno";
             this.txtMaterno.Size = new System.Drawing.Size(224, 22);
-            this.txtMaterno.TabIndex = 26;
+            this.txtMaterno.TabIndex = 4;
             // 
             // txtNombre
             // 
             this.txtNombre.Location = new System.Drawing.Point(117, 67);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(224, 22);
-            this.txtNombre.TabIndex = 22;
+            this.txtNombre.TabIndex = 2;
             // 
             // txtPaterno
             // 
             this.txtPaterno.Location = new System.Drawing.Point(117, 95);
             this.txtPaterno.Name = "txtPaterno";
             this.txtPaterno.Size = new System.Drawing.Size(224, 22);
-            this.txtPaterno.TabIndex = 24;
+            this.txtPaterno.TabIndex = 3;
             // 
             // PaginaFinal
             // 

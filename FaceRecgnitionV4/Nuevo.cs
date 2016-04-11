@@ -40,7 +40,8 @@ namespace FaceRecgnitionV4
 
         #region Pagina 1
         private void Pagina1_PageValidating(object sender, DevExpress.XtraWizard.WizardPageValidatingEventArgs e)
-        {//
+        {
+
             err.ClearErrors();
             if (txtID.Text == string.Empty)
             { err.SetError(txtID, "Campo requerido"); }
@@ -54,9 +55,9 @@ namespace FaceRecgnitionV4
             { err.SetError(txtColor, "Campo requerido"); }
             if (txtpassword.Text == string.Empty)
             { err.SetError(txtpassword, "Campo requerido"); }
-          
-        
-            if (existe != null)
+
+           
+            if(P.ExisteUsuario(txtusuario.Text).HasValue)
             {
                 err.SetError(txtusuario, "El nombre de ususario ya existe");
             }
