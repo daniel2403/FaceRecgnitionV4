@@ -90,8 +90,16 @@ namespace FaceRecgnitionV4
             }
             else { txtID.Text = "1"; }
         }
-           
-          
+
+        private void Wizard_CancelClick(object sender, CancelEventArgs e)
+        {
+            Login login = new Login();
+
+            login.Show();
+            this.Dispose();
+        }
+
+
         #endregion
 
         #region Pagina 2
@@ -169,11 +177,11 @@ namespace FaceRecgnitionV4
                     File.AppendAllText(Application.StartupPath + "/TrainedFaces/TrainedLabels.txt", labels.ToArray()[i - 1] + "%");
                 }
 
-                MessageBox.Show(txtNombre.Text + "´s face detected and added :)", "Training OK", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Cara de " + txtNombre.Text + " detectada y registrada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch
             {
-                MessageBox.Show("Enable the face detection first", "Training Fail", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                MessageBox.Show("Ocurrió un problema al detectar la cara.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
 
@@ -249,12 +257,13 @@ namespace FaceRecgnitionV4
      
         private void PaginaFinal_PageValidating(object sender, DevExpress.XtraWizard.WizardPageValidatingEventArgs e)
         {
-
             P.Insertar(_ID, _Usuario, _Password, _Nombre, _Materno, _Paterno, _Color,50);
-            MessageBox.Show("Usuario agregado con exito", "Completo", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            Login L = new Login();
-            L.Show();
-            this.Close();
+            MessageBox.Show("El usuario ha sido registrado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+
+            Login login = new Login();
+
+            login.Show();
+            this.Dispose();
         }
 
     }
