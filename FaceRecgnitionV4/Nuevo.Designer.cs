@@ -74,6 +74,10 @@
             // 
             // Wizard
             // 
+            this.Wizard.Appearance.ExteriorPageTitle.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Wizard.Appearance.ExteriorPageTitle.Options.UseFont = true;
+            this.Wizard.Appearance.PageTitle.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Wizard.Appearance.PageTitle.Options.UseFont = true;
             this.Wizard.CancelText = "Cancelar";
             this.Wizard.Controls.Add(this.PaginaInicial);
             this.Wizard.Controls.Add(this.Pagina1);
@@ -104,7 +108,7 @@
             this.PaginaInicial.Margin = new System.Windows.Forms.Padding(2);
             this.PaginaInicial.Name = "PaginaInicial";
             this.PaginaInicial.ProceedText = "Para continuar, pulsa clic en Siguiente";
-            this.PaginaInicial.Size = new System.Drawing.Size(154, 230);
+            this.PaginaInicial.Size = new System.Drawing.Size(154, 227);
             this.PaginaInicial.Text = "Bienvenido al asistente de configuración";
             // 
             // Pagina1
@@ -306,7 +310,7 @@
             this.PaginaFinal.Margin = new System.Windows.Forms.Padding(2);
             this.PaginaFinal.Name = "PaginaFinal";
             this.PaginaFinal.ProceedText = "Para continuar, pulsa clic en Finalizar";
-            this.PaginaFinal.Size = new System.Drawing.Size(154, 230);
+            this.PaginaFinal.Size = new System.Drawing.Size(154, 227);
             this.PaginaFinal.Text = "Finalizando el asistente de configuración";
             this.PaginaFinal.PageValidating += new DevExpress.XtraWizard.WizardPageValidatingEventHandler(this.PaginaFinal_PageValidating);
             // 
@@ -324,6 +328,7 @@
             this.Pagina2.Name = "Pagina2";
             this.Pagina2.Size = new System.Drawing.Size(339, 264);
             this.Pagina2.Text = "Especificación de Imágenes";
+            this.Pagina2.PageValidating += new DevExpress.XtraWizard.WizardPageValidatingEventHandler(this.Pagina2_PageValidating);
             // 
             // lblCantidadImagenes
             // 
@@ -347,26 +352,26 @@
             // 
             // btnApagar
             // 
-            this.btnApagar.Location = new System.Drawing.Point(220, 236);
+            this.btnApagar.Location = new System.Drawing.Point(215, 236);
             this.btnApagar.LookAndFeel.SkinName = "Visual Studio 2013 Light";
             this.btnApagar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Office2003;
             this.btnApagar.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btnApagar.Margin = new System.Windows.Forms.Padding(2);
             this.btnApagar.Name = "btnApagar";
-            this.btnApagar.Size = new System.Drawing.Size(70, 22);
+            this.btnApagar.Size = new System.Drawing.Size(75, 20);
             this.btnApagar.TabIndex = 17;
             this.btnApagar.Text = "Apagar";
             // 
             // btnCapturar
             // 
             this.btnCapturar.Enabled = false;
-            this.btnCapturar.Location = new System.Drawing.Point(119, 236);
+            this.btnCapturar.Location = new System.Drawing.Point(124, 236);
             this.btnCapturar.LookAndFeel.SkinName = "Visual Studio 2013 Light";
             this.btnCapturar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Office2003;
             this.btnCapturar.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btnCapturar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCapturar.Name = "btnCapturar";
-            this.btnCapturar.Size = new System.Drawing.Size(70, 22);
+            this.btnCapturar.Size = new System.Drawing.Size(75, 20);
             this.btnCapturar.TabIndex = 18;
             this.btnCapturar.Text = "Capturar";
             this.btnCapturar.Click += new System.EventHandler(this.btnCapturar_Click);
@@ -389,7 +394,7 @@
             this.btnPrender.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btnPrender.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrender.Name = "btnPrender";
-            this.btnPrender.Size = new System.Drawing.Size(70, 22);
+            this.btnPrender.Size = new System.Drawing.Size(75, 20);
             this.btnPrender.TabIndex = 16;
             this.btnPrender.Text = "Encender";
             this.btnPrender.Click += new System.EventHandler(this.btnPrender_Click);

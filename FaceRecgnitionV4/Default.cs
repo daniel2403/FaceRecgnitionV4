@@ -27,5 +27,10 @@ namespace FaceRecgnitionV4
             //A este punto ya deberia de tener los datos del usuario.
             //Hay que pintar los datos en la forma
         }
+
+        private void labelControl1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

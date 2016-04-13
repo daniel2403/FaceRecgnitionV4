@@ -41,62 +41,98 @@ namespace FaceRecgnitionV4
         #region Pagina 1
         private void Pagina1_PageValidating(object sender, DevExpress.XtraWizard.WizardPageValidatingEventArgs e)
         {
-
-            err.ClearErrors();
-            if (txtID.Text == string.Empty)
-            { err.SetError(txtID, "Campo requerido"); }
-            if (txtNombre.Text == string.Empty)
-            { err.SetError(txtNombre, "Campo requerido"); }
-            if (txtPaterno.Text == string.Empty)
-            { err.SetError(txtPaterno, "Campo requerido"); }
-            if (txtMaterno.Text == string.Empty)
-            { err.SetError(txtMaterno, "Campo requerido"); }
-            if (txtColor.Text == string.Empty)
-            { err.SetError(txtColor, "Campo requerido"); }
-            if (txtpassword.Text == string.Empty)
-            { err.SetError(txtpassword, "Campo requerido"); }
-
-           
-                if(P.ExisteUsuario(txtusuario.Text).HasValue)
+            try
             {
-                err.SetError(txtusuario, "El nombre de ususario ya existe");
+                err.ClearErrors();
+                if (txtID.Text == string.Empty)
+                { err.SetError(txtID, "Campo requerido"); }
+                if (txtNombre.Text == string.Empty)
+                { err.SetError(txtNombre, "Campo requerido"); }
+                if (txtPaterno.Text == string.Empty)
+                { err.SetError(txtPaterno, "Campo requerido"); }
+                if (txtMaterno.Text == string.Empty)
+                { err.SetError(txtMaterno, "Campo requerido"); }
+                if (txtColor.Text == string.Empty)
+                { err.SetError(txtColor, "Campo requerido"); }
+                if (txtpassword.Text == string.Empty)
+                { err.SetError(txtpassword, "Campo requerido"); }
+
+
+                if (P.ExisteUsuario(txtusuario.Text).HasValue)
+                {
+                    err.SetError(txtusuario, "El nombre de ususario ya existe");
+                }
+                if (txtusuario.Text == string.Empty)
+                { err.SetError(txtusuario, "Campo requerido"); }
+
+
+                if (err.HasErrors)
+                { e.Valid = false; }
+                else
+                {
+                    _ID = Convert.ToInt32(txtID.Text);
+                    _Nombre = txtNombre.Text;
+                    _Usuario = txtusuario.Text;
+                    _Paterno = txtPaterno.Text;
+                    _Materno = txtMaterno.Text;
+                    _Color = txtColor.EditValue.ToString();
+                    _Password = txtpassword.Text;
+
+                }
+                // e.Valid = true;//temporal
             }
-            if (txtusuario.Text == string.Empty)
-            { err.SetError(txtusuario, "Campo requerido"); }
 
-
-            if (err.HasErrors)
-            { e.Valid = false; }
-            else
+            catch (Exception exception)
             {
-                _ID = Convert.ToInt32(txtID.Text);
-                _Nombre = txtNombre.Text;
-                _Usuario = txtusuario.Text;
-                _Paterno = txtPaterno.Text;
-                _Materno = txtMaterno.Text;
-                _Color = txtColor.EditValue.ToString();
-                _Password = txtpassword.Text;
-
+                MessageBox.Show(string.Format("Ocurrió un problema. \n{0}", exception), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-           // e.Valid = true;//temporal
         }
 
         private void Pagina1_PageInit(object sender, EventArgs e)
         {
-            var id = P.MaxID();
-            if (id != null)
+            try
             {
-                txtID.Text = P.MaxID().ToString();
+                var id = P.MaxID();
+                if (id != null)
+                {
+                    txtID.Text = P.MaxID().ToString();
+                }
+                else { txtID.Text = "1"; }
             }
-            else { txtID.Text = "1"; }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show(string.Format("Ocurrió un problema. \n{0}", exception), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Wizard_CancelClick(object sender, CancelEventArgs e)
         {
-            Login login = new Login();
+            try
+            {
+                Login login = new Login();
 
-            login.Show();
-            this.Dispose();
+                login.Show();
+                this.Hide();
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show(string.Format("Ocurrió un problema. \n{0}", exception), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void Pagina2_PageValidating(object sender, DevExpress.XtraWizard.WizardPageValidatingEventArgs e)
+        {
+            try
+            {
+                Apagar();
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show(string.Format("Ocurrió un problema. \n{0}", exception), "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
 
@@ -107,28 +143,52 @@ namespace FaceRecgnitionV4
         //Principales 
         private void btnPrender_Click(object sender, EventArgs e)
         {
-            Prender();
+            try
+            {
+                Prender();
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show(string.Format("Ocurrió un problema. \n{0}", exception), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnApagar_Click(object sender, EventArgs e)
         {
-            Apagar();
+            try
+            {
+                Apagar();
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show(string.Format("Ocurrió un problema. \n{0}", exception), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Nuevo_Load(object sender, EventArgs e)
         {
-            //Load of previus trainned faces and labels for each image
-            string Labelsinfo = File.ReadAllText(Application.StartupPath + "/TrainedFaces/TrainedLabels.txt");
-            string[] Labels = Labelsinfo.Split('%');
-            NumLabels = Convert.ToInt16(Labels[0]);
-            ContTrain = NumLabels;
-            string LoadFaces;
-
-            for (int tf = 1; tf < NumLabels + 1; tf++)
+            try
             {
-                LoadFaces = "face" + tf + ".bmp";
-                trainingImages.Add(new Image<Gray, byte>(Application.StartupPath + "/TrainedFaces/" + LoadFaces));
-                labels.Add(Labels[tf]);
+                //Load of previus trainned faces and labels for each image
+                string Labelsinfo = File.ReadAllText(Application.StartupPath + "/TrainedFaces/TrainedLabels.txt");
+                string[] Labels = Labelsinfo.Split('%');
+                NumLabels = Convert.ToInt16(Labels[0]);
+                ContTrain = NumLabels;
+                string LoadFaces;
+
+                for (int tf = 1; tf < NumLabels + 1; tf++)
+                {
+                    LoadFaces = "face" + tf + ".bmp";
+                    trainingImages.Add(new Image<Gray, byte>(Application.StartupPath + "/TrainedFaces/" + LoadFaces));
+                    labels.Add(Labels[tf]);
+                }
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show(string.Format("Ocurrió un problema. \n{0}", exception), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -177,7 +237,7 @@ namespace FaceRecgnitionV4
                     File.AppendAllText(Application.StartupPath + "/TrainedFaces/TrainedLabels.txt", labels.ToArray()[i - 1] + "%");
                 }
 
-                MessageBox.Show("Cara de " + txtNombre.Text + " detectada y registrada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Cara de " + txtusuario.Text + " detectada y registrada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch
             {
@@ -190,66 +250,90 @@ namespace FaceRecgnitionV4
 
         void FrameGrabber(object sender, EventArgs e)
         {
-            //label4.Text = "";
-            NamePersons.Add("");
-
-
-            //Get the current frame form capture device
-            currentFrame = grabber.QueryFrame().Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
-
-            //Convert it to Grayscale
-            gray = currentFrame.Convert<Gray, Byte>();
-
-            //Face Detector
-            MCvAvgComp[][] facesDetected = gray.DetectHaarCascade(
-          face,
-          1.2,
-          10,
-          Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING,
-          new Size(20, 20));
-
-            //Action for each element detected
-            foreach (MCvAvgComp f in facesDetected[0])
+            try
             {
-                t = t + 1;
-                result = currentFrame.Copy(f.rect).Convert<Gray, byte>().Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
-                //draw the face detected in the 0th (gray) channel with blue color
-                currentFrame.Draw(f.rect, new Bgr(Color.White), 1);
+                //label4.Text = "";
+                NamePersons.Add("");
 
+
+                //Get the current frame form capture device
+                currentFrame = grabber.QueryFrame().Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
+
+                //Convert it to Grayscale
+                gray = currentFrame.Convert<Gray, Byte>();
+
+                //Face Detector
+                MCvAvgComp[][] facesDetected = gray.DetectHaarCascade(
+              face,
+              1.2,
+              10,
+              Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING,
+              new Size(20, 20));
+
+                //Action for each element detected
+                foreach (MCvAvgComp f in facesDetected[0])
+                {
+                    t = t + 1;
+                    result = currentFrame.Copy(f.rect).Convert<Gray, byte>().Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
+                    //draw the face detected in the 0th (gray) channel with blue color
+                    currentFrame.Draw(f.rect, new Bgr(Color.White), 1);
+
+                }
+                t = 0;
+                imageBox1.Image = currentFrame;
+
+                //Clear the list(vector) of names
+                NamePersons.Clear();
             }
-            t = 0;
-            imageBox1.Image = currentFrame;
-           
-            //Clear the list(vector) of names
-            NamePersons.Clear();
+
+            catch (Exception exception)
+            {
+                MessageBox.Show(string.Format("Ocurrió un problema. \n{0}", exception), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
         private void Prender()
         {
-            //Inicia la camara, Inicia el reconocimiento.
+            try
+            {
+                //Inicia la camara, Inicia el reconocimiento.
 
 
-            //Carga el haar de reconocimiento de rostro
-            face = new HaarCascade("haarcascade_frontalface_default.xml");
-            grabber = new Capture();
-            grabber.QueryFrame();
-            Application.Idle += new EventHandler(FrameGrabber);
-            btnCapturar.Enabled = true;
-            btnPrender.Enabled = false;
-            //comienza la captura
+                //Carga el haar de reconocimiento de rostro
+                face = new HaarCascade("haarcascade_frontalface_default.xml");
+                grabber = new Capture();
+                grabber.QueryFrame();
+                Application.Idle += new EventHandler(FrameGrabber);
+                btnCapturar.Enabled = true;
+                btnPrender.Enabled = false;
+                //comienza la captura
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show(string.Format("Ocurrió un problema. \n{0}", exception), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void Apagar()
         {
-            Application.Idle -= new EventHandler(FrameGrabber);
-            btnPrender.Enabled = true;
-            if (grabber != null)
+            try
             {
-                grabber.Dispose();
-            }
-            imageBox1.Image = null;
+                Application.Idle -= new EventHandler(FrameGrabber);
+                btnPrender.Enabled = true;
+                if (grabber != null)
+                {
+                    grabber.Dispose();
+                }
+                imageBox1.Image = null;
 
-            btnCapturar.Enabled = false;
+                btnCapturar.Enabled = false;
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show(string.Format("Ocurrió un problema. \n{0}", exception), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         #endregion
 
@@ -257,13 +341,21 @@ namespace FaceRecgnitionV4
      
         private void PaginaFinal_PageValidating(object sender, DevExpress.XtraWizard.WizardPageValidatingEventArgs e)
         {
-            P.Insertar(_ID, _Usuario, _Password, _Nombre, _Materno, _Paterno, _Color,50);
-            MessageBox.Show("El usuario ha sido registrado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            try
+            {
+                P.Insertar(_ID, _Usuario, _Password, _Nombre, _Materno, _Paterno, _Color, 50);
+                MessageBox.Show("El usuario ha sido registrado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
-            Login login = new Login();
+                Login login = new Login();
 
-            login.Show();
-            this.Dispose();
+                login.Show();
+                this.Hide();
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show(string.Format("Ocurrió un problema. \n{0}", exception), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
     }
