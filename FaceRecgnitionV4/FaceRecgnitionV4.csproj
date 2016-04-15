@@ -164,6 +164,7 @@
     <Content Include="DLLS_Emguv\opencv_objdetect220.dll" />
     <Content Include="DLLS_Emguv\opencv_video220.dll" />
     <Content Include="DLLS_Emguv\ZedGraph.dll" />
+    <Content Include="SQL\14abril2016.sql" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
