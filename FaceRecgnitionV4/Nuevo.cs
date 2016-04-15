@@ -21,7 +21,7 @@ namespace FaceRecgnitionV4
             InitializeComponent();
         }
 
-        string _Nombre, _Usuario, _Paterno, _Materno, _Color, _Password;
+        string _Nombre, _Usuario, _Paterno, _Materno, _Color, _Password, _R, _G, _B, _A;
         int _ID;
         //adaptadores a BD
         
@@ -76,6 +76,10 @@ namespace FaceRecgnitionV4
                     _Paterno = txtPaterno.Text;
                     _Materno = txtMaterno.Text;
                     _Color = txtColor.EditValue.ToString();
+                    _R = txtColor.Color.R.ToString();
+                    _G = txtColor.Color.G.ToString();
+                    _B = txtColor.Color.B.ToString();
+                    _A = txtColor.Color.A.ToString();
                     _Password = txtpassword.Text;
 
                 }
@@ -237,6 +241,8 @@ namespace FaceRecgnitionV4
                     File.AppendAllText(Application.StartupPath + "/TrainedFaces/TrainedLabels.txt", labels.ToArray()[i - 1] + "%");
                 }
 
+                lblCantidadImagenes.Text = ContTrain.ToString();
+
                 MessageBox.Show("Cara de " + txtusuario.Text + " detectada y registrada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch
@@ -343,13 +349,15 @@ namespace FaceRecgnitionV4
         {
             try
             {
-                P.Insertar(_ID, _Usuario, _Password, _Nombre, _Materno, _Paterno, _Color, 50);
+                P.Insertar(_ID, _Usuario, _Password, _Nombre, _Materno, _Paterno, _Color, 50, _R, _G, _B, _A);
                 MessageBox.Show("El usuario ha sido registrado exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
 
-                Login login = new Login();
+                Default def = new Default(_Usuario);
+                def.Show();
+                //Login login = new Login();
 
-                login.Show();
-                this.Hide();
+                //login.Show();
+                //this.Hide();
             }
 
             catch (Exception exception)

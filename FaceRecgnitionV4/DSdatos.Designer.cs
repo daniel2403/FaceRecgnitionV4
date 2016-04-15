@@ -295,6 +295,14 @@ namespace FaceRecgnitionV4 {
             
             private global::System.Data.DataColumn columnSeguridad;
             
+            private global::System.Data.DataColumn columnR;
+            
+            private global::System.Data.DataColumn columnG;
+            
+            private global::System.Data.DataColumn columnB;
+            
+            private global::System.Data.DataColumn columnA;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public PrincipalDataTable() {
@@ -394,6 +402,38 @@ namespace FaceRecgnitionV4 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn RColumn {
+                get {
+                    return this.columnR;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn GColumn {
+                get {
+                    return this.columnG;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn BColumn {
+                get {
+                    return this.columnB;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn AColumn {
+                get {
+                    return this.columnA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -429,7 +469,7 @@ namespace FaceRecgnitionV4 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public PrincipalRow AddPrincipalRow(int ID, string Usuario, string Password, string Nombre, string Materno, string Paterno, string Color, float Seguridad) {
+            public PrincipalRow AddPrincipalRow(int ID, string Usuario, string Password, string Nombre, string Materno, string Paterno, string Color, float Seguridad, string R, string G, string B, string A) {
                 PrincipalRow rowPrincipalRow = ((PrincipalRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ID,
@@ -439,7 +479,11 @@ namespace FaceRecgnitionV4 {
                         Materno,
                         Paterno,
                         Color,
-                        Seguridad};
+                        Seguridad,
+                        R,
+                        G,
+                        B,
+                        A};
                 rowPrincipalRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowPrincipalRow);
                 return rowPrincipalRow;
@@ -477,6 +521,10 @@ namespace FaceRecgnitionV4 {
                 this.columnPaterno = base.Columns["Paterno"];
                 this.columnColor = base.Columns["Color"];
                 this.columnSeguridad = base.Columns["Seguridad"];
+                this.columnR = base.Columns["R"];
+                this.columnG = base.Columns["G"];
+                this.columnB = base.Columns["B"];
+                this.columnA = base.Columns["A"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -498,6 +546,14 @@ namespace FaceRecgnitionV4 {
                 base.Columns.Add(this.columnColor);
                 this.columnSeguridad = new global::System.Data.DataColumn("Seguridad", typeof(float), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSeguridad);
+                this.columnR = new global::System.Data.DataColumn("R", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnR);
+                this.columnG = new global::System.Data.DataColumn("G", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnG);
+                this.columnB = new global::System.Data.DataColumn("B", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnB);
+                this.columnA = new global::System.Data.DataColumn("A", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnA);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnID}, true));
                 this.columnID.AllowDBNull = false;
@@ -749,6 +805,70 @@ namespace FaceRecgnitionV4 {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string R {
+                get {
+                    try {
+                        return ((string)(this[this.tablePrincipal.RColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'R\' in table \'Principal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePrincipal.RColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string G {
+                get {
+                    try {
+                        return ((string)(this[this.tablePrincipal.GColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'G\' in table \'Principal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePrincipal.GColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string B {
+                get {
+                    try {
+                        return ((string)(this[this.tablePrincipal.BColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'B\' in table \'Principal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePrincipal.BColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string A {
+                get {
+                    try {
+                        return ((string)(this[this.tablePrincipal.AColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'A\' in table \'Principal\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablePrincipal.AColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsSeguridadNull() {
                 return this.IsNull(this.tablePrincipal.SeguridadColumn);
             }
@@ -757,6 +877,54 @@ namespace FaceRecgnitionV4 {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetSeguridadNull() {
                 this[this.tablePrincipal.SeguridadColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsRNull() {
+                return this.IsNull(this.tablePrincipal.RColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetRNull() {
+                this[this.tablePrincipal.RColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsGNull() {
+                return this.IsNull(this.tablePrincipal.GColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetGNull() {
+                this[this.tablePrincipal.GColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsBNull() {
+                return this.IsNull(this.tablePrincipal.BColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetBNull() {
+                this[this.tablePrincipal.BColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsANull() {
+                return this.IsNull(this.tablePrincipal.AColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetANull() {
+                this[this.tablePrincipal.AColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -999,8 +1167,8 @@ SELECT ID, Usuario, Password, Nombre, Materno, Paterno, Color FROM Principal WHE
             this._commandCollection[2].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usuario", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[3] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "SELECT Color, ID, Materno, Nombre, Password, Paterno, Usuario FROM Principal WHER" +
-                "E (Usuario = @usuario)";
+            this._commandCollection[3].CommandText = "SELECT Color, ID, Materno, Nombre, Password, Paterno, Usuario, R, G, B, A FROM Pr" +
+                "incipal WHERE (Usuario = @usuario)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[3].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@usuario", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[4] = new global::System.Data.SqlClient.SqlCommand();
@@ -1010,9 +1178,9 @@ SELECT ID, Usuario, Password, Nombre, Materno, Paterno, Color FROM Principal WHE
             this._commandCollection[5] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[5].Connection = this.Connection;
             this._commandCollection[5].CommandText = @"INSERT INTO Principal
-                  (ID, Usuario, Password, Nombre, Materno, Paterno, Color, Seguridad)
-VALUES (@ID,@Usuario,@Password,@Nombre,@Materno,@Paterno,@Color,@Seguridad);      
-SELECT ID, Usuario, Password, Nombre, Materno, Paterno, Color, ImagenPromedio FROM Principal WHERE (ID = @ID)";
+                         (ID, Usuario, Password, Nombre, Materno, Paterno, Color, Seguridad, R, G, B, A)
+VALUES        (@ID,@Usuario,@Password,@Nombre,@Materno,@Paterno,@Color,@Seguridad,@R,@G,@B, @A);       
+SELECT ID, Usuario, Password, Nombre, Materno, Paterno, Color, ImagenPromedio, R, G, B, A FROM Principal WHERE (ID = @ID)";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@ID", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "ID", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Usuario", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Usuario", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -1022,6 +1190,10 @@ SELECT ID, Usuario, Password, Nombre, Materno, Paterno, Color, ImagenPromedio FR
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Paterno", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Paterno", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Color", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "Color", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Seguridad", global::System.Data.SqlDbType.Float, 8, global::System.Data.ParameterDirection.Input, 0, 0, "Seguridad", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@R", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "R", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@G", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "G", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@B", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "B", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[5].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@A", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "A", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._commandCollection[6] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[6].Connection = this.Connection;
             this._commandCollection[6].CommandText = "SELECT MAX(ID) + 1 AS ID\r\nFROM     Principal";
@@ -1170,7 +1342,7 @@ SELECT ID, Usuario, Password, Nombre, Materno, Paterno, Color, ImagenPromedio FR
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int Insertar(int ID, string Usuario, string Password, string Nombre, string Materno, string Paterno, string Color, double Seguridad) {
+        public virtual int Insertar(int ID, string Usuario, string Password, string Nombre, string Materno, string Paterno, string Color, double Seguridad, string R, string G, string B, string A) {
             global::System.Data.SqlClient.SqlCommand command = this.CommandCollection[5];
             command.Parameters[0].Value = ((int)(ID));
             if ((Usuario == null)) {
@@ -1210,6 +1382,30 @@ SELECT ID, Usuario, Password, Nombre, Materno, Paterno, Color, ImagenPromedio FR
                 command.Parameters[6].Value = ((string)(Color));
             }
             command.Parameters[7].Value = ((double)(Seguridad));
+            if ((R == null)) {
+                command.Parameters[8].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[8].Value = ((string)(R));
+            }
+            if ((G == null)) {
+                command.Parameters[9].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[9].Value = ((string)(G));
+            }
+            if ((B == null)) {
+                command.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[10].Value = ((string)(B));
+            }
+            if ((A == null)) {
+                command.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[11].Value = ((string)(A));
+            }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
