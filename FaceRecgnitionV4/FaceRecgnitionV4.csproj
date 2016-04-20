@@ -79,6 +79,9 @@
     <Compile Include="Default.Designer.cs">
       <DependentUpon>Default.cs</DependentUpon>
     </Compile>
+    <Compile Include="DSdatos.cs">
+      <DependentUpon>DSdatos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="DSdatos.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -89,6 +92,12 @@
     </Compile>
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginFallido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginFallido.Designer.cs">
+      <DependentUpon>LoginFallido.cs</DependentUpon>
     </Compile>
     <Compile Include="Nuevo.cs">
       <SubType>Form</SubType>
@@ -106,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginFallido.resx">
+      <DependentUpon>LoginFallido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Nuevo.resx">
       <DependentUpon>Nuevo.cs</DependentUpon>

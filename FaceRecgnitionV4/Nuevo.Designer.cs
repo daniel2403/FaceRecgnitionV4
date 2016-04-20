@@ -138,7 +138,7 @@
             // labelControl8
             // 
             this.labelControl8.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl8.Location = new System.Drawing.Point(12, 122);
+            this.labelControl8.Location = new System.Drawing.Point(12, 112);
             this.labelControl8.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(44, 16);
@@ -147,7 +147,7 @@
             // 
             // txtusuario
             // 
-            this.txtusuario.Location = new System.Drawing.Point(98, 122);
+            this.txtusuario.Location = new System.Drawing.Point(98, 110);
             this.txtusuario.Margin = new System.Windows.Forms.Padding(2);
             this.txtusuario.Name = "txtusuario";
             this.txtusuario.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -161,7 +161,7 @@
             // labelControl7
             // 
             this.labelControl7.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl7.Location = new System.Drawing.Point(12, 144);
+            this.labelControl7.Location = new System.Drawing.Point(12, 136);
             this.labelControl7.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl7.Name = "labelControl7";
             this.labelControl7.Size = new System.Drawing.Size(70, 16);
@@ -170,7 +170,7 @@
             // 
             // txtpassword
             // 
-            this.txtpassword.Location = new System.Drawing.Point(98, 144);
+            this.txtpassword.Location = new System.Drawing.Point(98, 134);
             this.txtpassword.Margin = new System.Windows.Forms.Padding(2);
             this.txtpassword.Name = "txtpassword";
             this.txtpassword.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -185,7 +185,7 @@
             // labelControl5
             // 
             this.labelControl5.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl5.Location = new System.Drawing.Point(11, 176);
+            this.labelControl5.Location = new System.Drawing.Point(12, 160);
             this.labelControl5.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(31, 16);
@@ -205,7 +205,7 @@
             // labelControl2
             // 
             this.labelControl2.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl2.Location = new System.Drawing.Point(12, 46);
+            this.labelControl2.Location = new System.Drawing.Point(12, 40);
             this.labelControl2.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(45, 16);
@@ -215,7 +215,7 @@
             // labelControl3
             // 
             this.labelControl3.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl3.Location = new System.Drawing.Point(12, 68);
+            this.labelControl3.Location = new System.Drawing.Point(12, 64);
             this.labelControl3.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(69, 16);
@@ -225,7 +225,7 @@
             // txtColor
             // 
             this.txtColor.EditValue = System.Drawing.Color.Empty;
-            this.txtColor.Location = new System.Drawing.Point(98, 176);
+            this.txtColor.Location = new System.Drawing.Point(98, 158);
             this.txtColor.Margin = new System.Windows.Forms.Padding(2);
             this.txtColor.Name = "txtColor";
             this.txtColor.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -241,7 +241,7 @@
             // labelControl4
             // 
             this.labelControl4.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelControl4.Location = new System.Drawing.Point(12, 90);
+            this.labelControl4.Location = new System.Drawing.Point(12, 88);
             this.labelControl4.Margin = new System.Windows.Forms.Padding(2);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(71, 16);
@@ -267,7 +267,7 @@
             // 
             // txtMaterno
             // 
-            this.txtMaterno.Location = new System.Drawing.Point(98, 90);
+            this.txtMaterno.Location = new System.Drawing.Point(98, 86);
             this.txtMaterno.Margin = new System.Windows.Forms.Padding(2);
             this.txtMaterno.Name = "txtMaterno";
             this.txtMaterno.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -280,7 +280,7 @@
             // 
             // txtNombre
             // 
-            this.txtNombre.Location = new System.Drawing.Point(98, 46);
+            this.txtNombre.Location = new System.Drawing.Point(98, 38);
             this.txtNombre.Margin = new System.Windows.Forms.Padding(2);
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -293,7 +293,7 @@
             // 
             // txtPaterno
             // 
-            this.txtPaterno.Location = new System.Drawing.Point(98, 68);
+            this.txtPaterno.Location = new System.Drawing.Point(98, 62);
             this.txtPaterno.Margin = new System.Windows.Forms.Padding(2);
             this.txtPaterno.Name = "txtPaterno";
             this.txtPaterno.Properties.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

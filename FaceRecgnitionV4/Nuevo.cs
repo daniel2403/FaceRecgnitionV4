@@ -37,6 +37,7 @@ namespace FaceRecgnitionV4
         List<string> labels = new List<string>();
         List<string> NamePersons = new List<string>();
         int ContTrain, NumLabels, t;
+        int imagenesCapturadas = 0;
 
         #region Pagina 1
         private void Pagina1_PageValidating(object sender, DevExpress.XtraWizard.WizardPageValidatingEventArgs e)
@@ -201,6 +202,7 @@ namespace FaceRecgnitionV4
         {
             try
             {
+                imagenesCapturadas++;
                 //Trained face counter
                 ContTrain = ContTrain + 1;
 
@@ -241,7 +243,7 @@ namespace FaceRecgnitionV4
                     File.AppendAllText(Application.StartupPath + "/TrainedFaces/TrainedLabels.txt", labels.ToArray()[i - 1] + "%");
                 }
 
-                lblCantidadImagenes.Text = ContTrain.ToString();
+                lblCantidadImagenes.Text = imagenesCapturadas.ToString();
 
                 MessageBox.Show("Cara de " + txtusuario.Text + " detectada y registrada exitosamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

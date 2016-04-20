@@ -116,6 +116,21 @@ namespace FaceRecgnitionV4
             
         }
 
+        private void lnkInicioFallo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            LoginFallido login = new LoginFallido();
+
+            login.Show();
+            this.Hide();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("¿Estás seguro que deseas cerrar la aplicación?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==  DialogResult.Yes)
+            {
+            }
+        }
+
         int contador = 0;string NombreAuxiliar = "";
         void FrameGrabber(object sender, EventArgs e)
         {
@@ -162,31 +177,37 @@ namespace FaceRecgnitionV4
                     name = recognizer.Recognize(result);
                     //Aun en investigaciones, pero parece que si es mayor a 3000 no reconoce a nadie
                     float Confidence = recognizer.GetEigenDistances(result)[0];
-                    if (NombreAuxiliar == "")
+                    labelControl1.Text = Confidence.ToString();
+                    if (Confidence < 30000)
                     {
-                        NombreAuxiliar = name;
-                    }
-                    //Draw the label for each face detected and recognized
-                    currentFrame.Draw(name, ref font, new Point(f.rect.X - 2, f.rect.Y - 2), new Bgr(Color.White));
-                    if ((name == NombreAuxiliar) && NombreAuxiliar != "")
-                    {
-                        contador = contador + 5;
-                        progressBarControl1.EditValue = contador;
+                        if (NombreAuxiliar == "")
+                        {
+                            NombreAuxiliar = name;
+                        }
+                        //Draw the label for each face detected and recognized
+                        currentFrame.Draw(name, ref font, new Point(f.rect.X - 2, f.rect.Y - 2), new Bgr(Color.White));
+                        if ((name == NombreAuxiliar) && NombreAuxiliar != "")
+                        {
+                            contador = contador + 5;
+                            progressBarControl1.EditValue = contador;
 
-                    }
-                    else { contador = 0; NombreAuxiliar = ""; }
-                    if (contador == 100)
-                    {
-                        
-                        //Si llega hasta aqui quiere decir que identifico a alguien
-                        //Apagar();
-                        FaceRecgnitionV4.Default d = new Default(name);
-                      //  d.Show();
-                       // this.Hide();
-                     
+                        }
+                        else { contador = 0; NombreAuxiliar = ""; }
+                        if (contador == 100)
+                        {
 
-                        
+                            //Si llega hasta aqui quiere decir que identifico a alguien
+                            //Apagar();
+                            FaceRecgnitionV4.Default d = new Default(name);
+                            d.Show();
+                            //  d.Show();
+                            // this.Hide();
+
+
+
+                        }
                     }
+                    
                 }
                
                 NamePersons[t - 1] = name;

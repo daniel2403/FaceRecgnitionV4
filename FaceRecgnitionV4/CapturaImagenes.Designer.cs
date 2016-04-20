@@ -28,18 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.btnApagar = new DevExpress.XtraEditors.SimpleButton();
             this.btnCapturar = new DevExpress.XtraEditors.SimpleButton();
             this.btnPrender = new DevExpress.XtraEditors.SimpleButton();
-            this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
+            this.pcInferior = new DevExpress.XtraEditors.PanelControl();
             this.btnCancelar = new DevExpress.XtraEditors.SimpleButton();
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).BeginInit();
-            this.panelControl2.SuspendLayout();
+            this.pcCentral = new DevExpress.XtraEditors.PanelControl();
+            this.lblCantidadImagenes = new DevExpress.XtraEditors.LabelControl();
+            this.lblImagenesCapturadas = new DevExpress.XtraEditors.LabelControl();
+            this.imageBox1 = new Emgu.CV.UI.ImageBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pcInferior)).BeginInit();
+            this.pcInferior.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pcCentral)).BeginInit();
+            this.pcCentral.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnApagar
             // 
-            this.btnApagar.Location = new System.Drawing.Point(198, 169);
+            this.btnApagar.Location = new System.Drawing.Point(285, 342);
             this.btnApagar.LookAndFeel.SkinName = "Visual Studio 2013 Light";
             this.btnApagar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Office2003;
             this.btnApagar.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -48,11 +56,12 @@
             this.btnApagar.Size = new System.Drawing.Size(75, 20);
             this.btnApagar.TabIndex = 23;
             this.btnApagar.Text = "Apagar";
+            this.btnApagar.Click += new System.EventHandler(this.btnApagar_Click);
             // 
             // btnCapturar
             // 
             this.btnCapturar.Enabled = false;
-            this.btnCapturar.Location = new System.Drawing.Point(119, 169);
+            this.btnCapturar.Location = new System.Drawing.Point(90, 342);
             this.btnCapturar.LookAndFeel.SkinName = "Visual Studio 2013 Light";
             this.btnCapturar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Office2003;
             this.btnCapturar.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -61,10 +70,11 @@
             this.btnCapturar.Size = new System.Drawing.Size(75, 20);
             this.btnCapturar.TabIndex = 24;
             this.btnCapturar.Text = "Capturar";
+            this.btnCapturar.Click += new System.EventHandler(this.btnCapturar_Click);
             // 
             // btnPrender
             // 
-            this.btnPrender.Location = new System.Drawing.Point(40, 169);
+            this.btnPrender.Location = new System.Drawing.Point(11, 342);
             this.btnPrender.LookAndFeel.SkinName = "Visual Studio 2013 Light";
             this.btnPrender.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Office2003;
             this.btnPrender.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -73,21 +83,22 @@
             this.btnPrender.Size = new System.Drawing.Size(75, 20);
             this.btnPrender.TabIndex = 22;
             this.btnPrender.Text = "Encender";
+            this.btnPrender.Click += new System.EventHandler(this.btnPrender_Click);
             // 
-            // panelControl2
+            // pcInferior
             // 
-            this.panelControl2.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
-            this.panelControl2.Controls.Add(this.btnCancelar);
-            this.panelControl2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelControl2.Location = new System.Drawing.Point(0, 219);
-            this.panelControl2.Name = "panelControl2";
-            this.panelControl2.Size = new System.Drawing.Size(284, 42);
-            this.panelControl2.TabIndex = 25;
+            this.pcInferior.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pcInferior.Controls.Add(this.btnCancelar);
+            this.pcInferior.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.pcInferior.Location = new System.Drawing.Point(0, 367);
+            this.pcInferior.Name = "pcInferior";
+            this.pcInferior.Size = new System.Drawing.Size(371, 42);
+            this.pcInferior.TabIndex = 25;
             // 
             // btnCancelar
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelar.Location = new System.Drawing.Point(198, 11);
+            this.btnCancelar.Location = new System.Drawing.Point(285, 11);
             this.btnCancelar.LookAndFeel.SkinName = "Visual Studio 2013 Light";
             this.btnCancelar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Office2003;
             this.btnCancelar.LookAndFeel.UseDefaultLookAndFeel = false;
@@ -96,23 +107,74 @@
             this.btnCancelar.Size = new System.Drawing.Size(75, 20);
             this.btnCancelar.TabIndex = 0;
             this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // pcCentral
+            // 
+            this.pcCentral.Appearance.BackColor = System.Drawing.Color.White;
+            this.pcCentral.Appearance.Options.UseBackColor = true;
+            this.pcCentral.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
+            this.pcCentral.Controls.Add(this.lblCantidadImagenes);
+            this.pcCentral.Controls.Add(this.lblImagenesCapturadas);
+            this.pcCentral.Controls.Add(this.btnApagar);
+            this.pcCentral.Controls.Add(this.btnCapturar);
+            this.pcCentral.Controls.Add(this.btnPrender);
+            this.pcCentral.Controls.Add(this.imageBox1);
+            this.pcCentral.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pcCentral.Location = new System.Drawing.Point(0, 0);
+            this.pcCentral.Name = "pcCentral";
+            this.pcCentral.Size = new System.Drawing.Size(371, 367);
+            this.pcCentral.TabIndex = 26;
+            // 
+            // lblCantidadImagenes
+            // 
+            this.lblCantidadImagenes.Appearance.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCantidadImagenes.Location = new System.Drawing.Point(241, 312);
+            this.lblCantidadImagenes.Margin = new System.Windows.Forms.Padding(2);
+            this.lblCantidadImagenes.Name = "lblCantidadImagenes";
+            this.lblCantidadImagenes.Size = new System.Drawing.Size(9, 14);
+            this.lblCantidadImagenes.TabIndex = 23;
+            this.lblCantidadImagenes.Text = " 0";
+            // 
+            // lblImagenesCapturadas
+            // 
+            this.lblImagenesCapturadas.Appearance.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblImagenesCapturadas.Location = new System.Drawing.Point(254, 312);
+            this.lblImagenesCapturadas.Margin = new System.Windows.Forms.Padding(2);
+            this.lblImagenesCapturadas.Name = "lblImagenesCapturadas";
+            this.lblImagenesCapturadas.Size = new System.Drawing.Size(104, 14);
+            this.lblImagenesCapturadas.TabIndex = 22;
+            this.lblImagenesCapturadas.Text = "imágenes capturadas";
+            // 
+            // imageBox1
+            // 
+            this.imageBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.imageBox1.Location = new System.Drawing.Point(11, 11);
+            this.imageBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.imageBox1.Name = "imageBox1";
+            this.imageBox1.Size = new System.Drawing.Size(349, 297);
+            this.imageBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.imageBox1.TabIndex = 21;
+            this.imageBox1.TabStop = false;
             // 
             // CapturaImagenes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(371, 409);
             this.ControlBox = false;
-            this.Controls.Add(this.panelControl2);
-            this.Controls.Add(this.btnApagar);
-            this.Controls.Add(this.btnCapturar);
-            this.Controls.Add(this.btnPrender);
+            this.Controls.Add(this.pcCentral);
+            this.Controls.Add(this.pcInferior);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "CapturaImagenes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Captura de Imágenes";
-            ((System.ComponentModel.ISupportInitialize)(this.panelControl2)).EndInit();
-            this.panelControl2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pcInferior)).EndInit();
+            this.pcInferior.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pcCentral)).EndInit();
+            this.pcCentral.ResumeLayout(false);
+            this.pcCentral.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.imageBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -122,7 +184,11 @@
         private DevExpress.XtraEditors.SimpleButton btnApagar;
         private DevExpress.XtraEditors.SimpleButton btnCapturar;
         private DevExpress.XtraEditors.SimpleButton btnPrender;
-        private DevExpress.XtraEditors.PanelControl panelControl2;
+        private DevExpress.XtraEditors.PanelControl pcInferior;
         private DevExpress.XtraEditors.SimpleButton btnCancelar;
+        private DevExpress.XtraEditors.PanelControl pcCentral;
+        private DevExpress.XtraEditors.LabelControl lblCantidadImagenes;
+        private DevExpress.XtraEditors.LabelControl lblImagenesCapturadas;
+        private Emgu.CV.UI.ImageBox imageBox1;
     }
 }

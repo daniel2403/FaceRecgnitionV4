@@ -14,9 +14,24 @@ namespace FaceRecgnitionV4
     {
         DSdatosTableAdapters.PrincipalTableAdapter P = new DSdatosTableAdapters.PrincipalTableAdapter();
         DSdatos.PrincipalDataTable dt = new DSdatos.PrincipalDataTable();
-        string Usuario, color;
+        string Usuario;
         int R, G, B, A;
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Login login = new Login();
+
+                login.Show();
+                this.Dispose();
+            }
+
+            catch (Exception exception)
+            {
+                MessageBox.Show(string.Format("Ocurrió un problema. \n{0}", exception), "Error",  MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
 
         public Default(string NombreUsuario)
         {
@@ -25,6 +40,8 @@ namespace FaceRecgnitionV4
             Usuario = NombreUsuario;
             dt = P.GetDatosUsuario(NombreUsuario);
         }
+
+        
 
         private void Default_Load(object sender, EventArgs e)
         {
@@ -38,7 +55,7 @@ namespace FaceRecgnitionV4
                 B = Convert.ToInt32(dt.Rows[0][10].ToString());
                 A = Convert.ToInt32(dt.Rows[0][11].ToString());
                 pcSuperior.BackColor = Color.FromArgb(A, R, G, B);
-                pcSuperior.ForeColor = (contrastarColores(R, G, B, A) > 0.5) ? Color.White : Color.Black;
+                pcSuperior.ForeColor = (contrastarColores(R, G, B, A) > 0.3) ? Color.White : Color.Black;
             }
 
             catch (Exception exception)
@@ -50,6 +67,14 @@ namespace FaceRecgnitionV4
         private double contrastarColores(int R, int G, int B, int A)
         {
             return 1 - (0.299 * R + 0.587 * G + 0.114 * B) / 255;
+        }
+
+        private void lnkImagenes_Click(object sender, EventArgs e)
+        {
+            CapturaImagenes capturarImagenes = new CapturaImagenes(lblUsuario.Text);
+
+            capturarImagenes.ShowDialog(this);
+            capturarImagenes.Dispose();
         }
 
         private void labelControl1_Click(object sender, EventArgs e)
