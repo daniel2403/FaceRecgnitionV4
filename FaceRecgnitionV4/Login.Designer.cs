@@ -38,7 +38,6 @@
             this.progressBarControl1 = new DevExpress.XtraEditors.ProgressBarControl();
             this.pcInferior = new DevExpress.XtraEditors.PanelControl();
             this.btnCancelar = new DevExpress.XtraEditors.SimpleButton();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             ((System.ComponentModel.ISupportInitialize)(this.imageBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.progressBarControl1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pcInferior)).BeginInit();
@@ -65,7 +64,7 @@
             this.btnOn.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btnOn.Margin = new System.Windows.Forms.Padding(2);
             this.btnOn.Name = "btnOn";
-            this.btnOn.Size = new System.Drawing.Size(75, 20);
+            this.btnOn.Size = new System.Drawing.Size(75, 22);
             this.btnOn.TabIndex = 3;
             this.btnOn.Text = "Enceder";
             this.btnOn.Click += new System.EventHandler(this.btnOn_Click);
@@ -74,12 +73,12 @@
             // 
             this.btnOff.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOff.Appearance.Options.UseFont = true;
-            this.btnOff.Location = new System.Drawing.Point(285, 293);
+            this.btnOff.Location = new System.Drawing.Point(283, 293);
             this.btnOff.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Office2003;
             this.btnOff.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btnOff.Margin = new System.Windows.Forms.Padding(2);
             this.btnOff.Name = "btnOff";
-            this.btnOff.Size = new System.Drawing.Size(75, 20);
+            this.btnOff.Size = new System.Drawing.Size(75, 22);
             this.btnOff.TabIndex = 4;
             this.btnOff.Text = "Apagar";
             this.btnOff.Click += new System.EventHandler(this.btnOff_Click);
@@ -94,7 +93,7 @@
             this.btnIniciar.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btnIniciar.Margin = new System.Windows.Forms.Padding(2);
             this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(75, 20);
+            this.btnIniciar.Size = new System.Drawing.Size(75, 22);
             this.btnIniciar.TabIndex = 5;
             this.btnIniciar.Text = "Iniciar";
             this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
@@ -162,19 +161,10 @@
             this.btnCancelar.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 20);
+            this.btnCancelar.Size = new System.Drawing.Size(75, 22);
             this.btnCancelar.TabIndex = 0;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(295, 318);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(63, 13);
-            this.labelControl1.TabIndex = 27;
-            this.labelControl1.Text = "labelControl1";
-            this.labelControl1.Visible = false;
             // 
             // Login
             // 
@@ -183,7 +173,6 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(371, 409);
             this.ControlBox = false;
-            this.Controls.Add(this.labelControl1);
             this.Controls.Add(this.pcInferior);
             this.Controls.Add(this.lnkInicioFallo);
             this.Controls.Add(this.progressBarControl1);
@@ -218,7 +207,6 @@
         private DevExpress.XtraEditors.ProgressBarControl progressBarControl1;
         private DevExpress.XtraEditors.PanelControl pcInferior;
         private DevExpress.XtraEditors.SimpleButton btnCancelar;
-        private DevExpress.XtraEditors.LabelControl labelControl1;
     }
 }
 

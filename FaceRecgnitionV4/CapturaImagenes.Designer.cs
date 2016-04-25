@@ -47,40 +47,46 @@
             // 
             // btnApagar
             // 
-            this.btnApagar.Location = new System.Drawing.Point(285, 342);
+            this.btnApagar.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnApagar.Appearance.Options.UseFont = true;
+            this.btnApagar.Location = new System.Drawing.Point(285, 340);
             this.btnApagar.LookAndFeel.SkinName = "Visual Studio 2013 Light";
             this.btnApagar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Office2003;
             this.btnApagar.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btnApagar.Margin = new System.Windows.Forms.Padding(2);
             this.btnApagar.Name = "btnApagar";
-            this.btnApagar.Size = new System.Drawing.Size(75, 20);
+            this.btnApagar.Size = new System.Drawing.Size(75, 22);
             this.btnApagar.TabIndex = 23;
             this.btnApagar.Text = "Apagar";
             this.btnApagar.Click += new System.EventHandler(this.btnApagar_Click);
             // 
             // btnCapturar
             // 
+            this.btnCapturar.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCapturar.Appearance.Options.UseFont = true;
             this.btnCapturar.Enabled = false;
-            this.btnCapturar.Location = new System.Drawing.Point(90, 342);
+            this.btnCapturar.Location = new System.Drawing.Point(90, 340);
             this.btnCapturar.LookAndFeel.SkinName = "Visual Studio 2013 Light";
             this.btnCapturar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Office2003;
             this.btnCapturar.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btnCapturar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCapturar.Name = "btnCapturar";
-            this.btnCapturar.Size = new System.Drawing.Size(75, 20);
+            this.btnCapturar.Size = new System.Drawing.Size(75, 22);
             this.btnCapturar.TabIndex = 24;
             this.btnCapturar.Text = "Capturar";
             this.btnCapturar.Click += new System.EventHandler(this.btnCapturar_Click);
             // 
             // btnPrender
             // 
-            this.btnPrender.Location = new System.Drawing.Point(11, 342);
+            this.btnPrender.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrender.Appearance.Options.UseFont = true;
+            this.btnPrender.Location = new System.Drawing.Point(11, 340);
             this.btnPrender.LookAndFeel.SkinName = "Visual Studio 2013 Light";
             this.btnPrender.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Office2003;
             this.btnPrender.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btnPrender.Margin = new System.Windows.Forms.Padding(2);
             this.btnPrender.Name = "btnPrender";
-            this.btnPrender.Size = new System.Drawing.Size(75, 20);
+            this.btnPrender.Size = new System.Drawing.Size(75, 22);
             this.btnPrender.TabIndex = 22;
             this.btnPrender.Text = "Encender";
             this.btnPrender.Click += new System.EventHandler(this.btnPrender_Click);
@@ -98,13 +104,15 @@
             // btnCancelar
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelar.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Appearance.Options.UseFont = true;
             this.btnCancelar.Location = new System.Drawing.Point(285, 11);
             this.btnCancelar.LookAndFeel.SkinName = "Visual Studio 2013 Light";
             this.btnCancelar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Office2003;
             this.btnCancelar.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 20);
+            this.btnCancelar.Size = new System.Drawing.Size(75, 22);
             this.btnCancelar.TabIndex = 0;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);

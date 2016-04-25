@@ -128,106 +128,114 @@ namespace FaceRecgnitionV4
         {
             if (MessageBox.Show("¿Estás seguro que deseas cerrar la aplicación?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) ==  DialogResult.Yes)
             {
+                this.Dispose();
             }
         }
 
         int contador = 0;string NombreAuxiliar = "";
         void FrameGrabber(object sender, EventArgs e)
         {
-            
-            //label4.Text = "";
-            NamePersons.Add("");
-
-
-            //Get the current frame form capture device
-            currentFrame = grabber.QueryFrame().Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
-
-            //Convert it to Grayscale
-            gray = currentFrame.Convert<Gray, Byte>();
-
-            //Face Detector
-            MCvAvgComp[][] facesDetected = gray.DetectHaarCascade(
-          face,
-          1.2,
-          10,
-          Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING,
-          new Size(20, 20));
-
-            //Action for each element detected
-            foreach (MCvAvgComp f in facesDetected[0])
+            try
             {
-                t = t + 1;
-                result = currentFrame.Copy(f.rect).Convert<Gray, byte>().Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
-                //draw the face detected in the 0th (gray) channel with blue color
-                currentFrame.Draw(f.rect, new Bgr(Color.White), 1);
 
-
-                if (trainingImages.ToArray().Length != 0)
-                {
-                    //TermCriteria for face recognition with numbers of trained images like maxIteration
-                    MCvTermCriteria termCrit = new MCvTermCriteria(ContTrain, 0.001);
-
-                    //Eigen face recognizer
-                    EigenObjectRecognizer recognizer = new EigenObjectRecognizer(
-                       trainingImages.ToArray(),
-                       labels.ToArray(),
-                       2700,
-                       ref termCrit);
-
-                    name = recognizer.Recognize(result);
-                    //Aun en investigaciones, pero parece que si es mayor a 3000 no reconoce a nadie
-                    float Confidence = recognizer.GetEigenDistances(result)[0];
-                    labelControl1.Text = Confidence.ToString();
-                    if (Confidence < 30000)
-                    {
-                        if (NombreAuxiliar == "")
-                        {
-                            NombreAuxiliar = name;
-                        }
-                        //Draw the label for each face detected and recognized
-                        currentFrame.Draw(name, ref font, new Point(f.rect.X - 2, f.rect.Y - 2), new Bgr(Color.White));
-                        if ((name == NombreAuxiliar) && NombreAuxiliar != "")
-                        {
-                            contador = contador + 5;
-                            progressBarControl1.EditValue = contador;
-
-                        }
-                        else { contador = 0; NombreAuxiliar = ""; }
-                        if (contador == 100)
-                        {
-
-                            //Si llega hasta aqui quiere decir que identifico a alguien
-                            //Apagar();
-                            FaceRecgnitionV4.Default d = new Default(name);
-                            d.Show();
-                            //  d.Show();
-                            // this.Hide();
-
-
-
-                        }
-                    }
-                    
-                }
-               
-                NamePersons[t - 1] = name;
+                //label4.Text = "";
                 NamePersons.Add("");
 
 
-            }
-            t = 0;
+                //Get the current frame form capture device
+                currentFrame = grabber.QueryFrame().Resize(320, 240, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
 
-            //Names concatenation of persons recognized
-            for (int nnn = 0; nnn < facesDetected[0].Length; nnn++)
-            {
-                names = names + NamePersons[nnn] + ", ";
+                //Convert it to Grayscale
+                gray = currentFrame.Convert<Gray, Byte>();
+
+                //Face Detector
+                MCvAvgComp[][] facesDetected = gray.DetectHaarCascade(
+              face,
+              1.2,
+              10,
+              Emgu.CV.CvEnum.HAAR_DETECTION_TYPE.DO_CANNY_PRUNING,
+              new Size(20, 20));
+
+                //Action for each element detected
+                foreach (MCvAvgComp f in facesDetected[0])
+                {
+                    t = t + 1;
+                    result = currentFrame.Copy(f.rect).Convert<Gray, byte>().Resize(100, 100, Emgu.CV.CvEnum.INTER.CV_INTER_CUBIC);
+                    //draw the face detected in the 0th (gray) channel with blue color
+                    currentFrame.Draw(f.rect, new Bgr(Color.White), 1);
+
+
+                    if (trainingImages.ToArray().Length != 0)
+                    {
+                        //TermCriteria for face recognition with numbers of trained images like maxIteration
+                        MCvTermCriteria termCrit = new MCvTermCriteria(ContTrain, 0.001);
+
+                        //Eigen face recognizer
+                        EigenObjectRecognizer recognizer = new EigenObjectRecognizer(
+                           trainingImages.ToArray(),
+                           labels.ToArray(),
+                           2700,
+                           ref termCrit);
+
+                        name = recognizer.Recognize(result);
+                        //Aun en investigaciones, pero parece que si es mayor a 3000 no reconoce a nadie
+                        float Confidence = recognizer.GetEigenDistances(result)[0];
+
+                        if (Confidence < 30000)
+                        {
+                            if (NombreAuxiliar == "")
+                            {
+                                NombreAuxiliar = name;
+                            }
+                            //Draw the label for each face detected and recognized
+                            currentFrame.Draw(name, ref font, new Point(f.rect.X - 2, f.rect.Y - 2), new Bgr(Color.White));
+                            if ((name == NombreAuxiliar) && NombreAuxiliar != "")
+                            {
+                                contador = contador + 5;
+                                progressBarControl1.EditValue = contador;
+
+                            }
+                            else { contador = 0; NombreAuxiliar = ""; }
+                            if (contador == 100)
+                            {
+
+                                //Si llega hasta aqui quiere decir que identifico a alguien
+                                //Apagar();
+                                FaceRecgnitionV4.Default d = new Default(name);
+                                d.Show();
+                                //  d.Show();
+                                // this.Hide();
+
+
+
+                            }
+                        }
+
+                    }
+
+                    NamePersons[t - 1] = name;
+                    NamePersons.Add("");
+
+
+                }
+                t = 0;
+
+                //Names concatenation of persons recognized
+                for (int nnn = 0; nnn < facesDetected[0].Length; nnn++)
+                {
+                    names = names + NamePersons[nnn] + ", ";
+                }
+                //Show the faces procesed and recognized
+                imageBox1.Image = currentFrame;
+
+                names = "";
+                //Clear the list(vector) of names
+                NamePersons.Clear();
             }
-            //Show the faces procesed and recognized
-            imageBox1.Image = currentFrame;
-          
-            names = "";
-            //Clear the list(vector) of names
-            NamePersons.Clear();
+
+            catch (Exception ex)
+            {
+            }
 
         }
 

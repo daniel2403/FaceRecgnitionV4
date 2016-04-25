@@ -21,10 +21,13 @@ namespace FaceRecgnitionV4
         {
             try
             {
-                Login login = new Login();
+                if (MessageBox.Show("¿Estás seguro que deseas cerrar sesión?", "Atención", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    Login login = new Login();
 
-                login.Show();
-                this.Dispose();
+                    login.Show();
+                    this.Dispose();
+                }
             }
 
             catch (Exception exception)

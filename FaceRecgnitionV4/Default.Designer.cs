@@ -37,27 +37,25 @@
             this.pcCentral = new DevExpress.XtraEditors.PanelControl();
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.lnkImagenes = new DevExpress.XtraEditors.HyperlinkLabelControl();
-            this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
-            this.lcgImagenes = new DevExpress.XtraLayout.LayoutControlGroup();
             ((System.ComponentModel.ISupportInitialize)(this.pcSuperior)).BeginInit();
             this.pcSuperior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcInferior)).BeginInit();
             this.pcInferior.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pcCentral)).BeginInit();
             this.pcCentral.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgImagenes)).BeginInit();
             this.SuspendLayout();
             // 
             // btnCancelar
             // 
+            this.btnCancelar.Appearance.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.Appearance.Options.UseFont = true;
             this.btnCancelar.Location = new System.Drawing.Point(285, 11);
             this.btnCancelar.LookAndFeel.SkinName = "Visual Studio 2013 Light";
             this.btnCancelar.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Office2003;
             this.btnCancelar.LookAndFeel.UseDefaultLookAndFeel = false;
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(2);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(75, 20);
+            this.btnCancelar.Size = new System.Drawing.Size(75, 22);
             this.btnCancelar.TabIndex = 5;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
@@ -119,7 +117,6 @@
             this.pcCentral.BorderStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.pcCentral.Controls.Add(this.labelControl1);
             this.pcCentral.Controls.Add(this.lnkImagenes);
-            this.pcCentral.Controls.Add(this.layoutControl1);
             this.pcCentral.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pcCentral.Location = new System.Drawing.Point(0, 101);
             this.pcCentral.Name = "pcCentral";
@@ -148,29 +145,12 @@
             this.lnkImagenes.Text = "aquí";
             this.lnkImagenes.Click += new System.EventHandler(this.lnkImagenes_Click);
             // 
-            // layoutControl1
-            // 
-            this.layoutControl1.Location = new System.Drawing.Point(12, 6);
-            this.layoutControl1.Name = "layoutControl1";
-            this.layoutControl1.Root = this.lcgImagenes;
-            this.layoutControl1.Size = new System.Drawing.Size(346, 127);
-            this.layoutControl1.TabIndex = 0;
-            this.layoutControl1.Text = "layoutControl1";
-            // 
-            // lcgImagenes
-            // 
-            this.lcgImagenes.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.lcgImagenes.GroupBordersVisible = false;
-            this.lcgImagenes.Location = new System.Drawing.Point(0, 0);
-            this.lcgImagenes.Name = "Root";
-            this.lcgImagenes.Size = new System.Drawing.Size(346, 127);
-            this.lcgImagenes.TextVisible = false;
-            // 
             // Default
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(371, 409);
+            this.ControlBox = false;
             this.Controls.Add(this.pcCentral);
             this.Controls.Add(this.pcInferior);
             this.Controls.Add(this.pcSuperior);
@@ -188,8 +168,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pcCentral)).EndInit();
             this.pcCentral.ResumeLayout(false);
             this.pcCentral.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.lcgImagenes)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -205,7 +183,5 @@
         private DevExpress.XtraEditors.PanelControl pcCentral;
         private DevExpress.XtraEditors.LabelControl labelControl1;
         private DevExpress.XtraEditors.HyperlinkLabelControl lnkImagenes;
-        private DevExpress.XtraLayout.LayoutControl layoutControl1;
-        private DevExpress.XtraLayout.LayoutControlGroup lcgImagenes;
     }
 }
